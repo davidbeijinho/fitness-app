@@ -9,39 +9,33 @@ const Question2 = (props) => (
 
 
     <div className="field">
-      <div className="control has-icons-left has-icons-right">
+      <div className="control has-icons-left">
         <input className="input is-large" type="number" placeholder="Idade" onChange={props.setAge} />
         <span className="icon is-large is-left">
           <i className="fas fa-user"></i>
         </span>
-        <span className="icon is-large is-right">
-          <i className="fas fa-check"></i>
-        </span>
       </div>
+      <p className="help">Ex: 24</p>
     </div>
 
     <div className="field">
-      <div className="control has-icons-left has-icons-right">
+      <div className="control has-icons-left">
         <input className="input is-large" type="number" placeholder="Altura" onChange={props.setHeight} />
         <span className="icon is-large is-left">
           <i className="fas fa-ruler-vertical"></i>
         </span>
-        <span className="icon is-large is-right">
-          <i className="fas fa-check"></i>
-        </span>
       </div>
+      <p className="help">Ex: 1.8</p>
     </div>
 
     <div className="field">
-      <div className="control has-icons-left has-icons-right">
+      <div className="control has-icons-left">
         <input className="input is-large" type="number" placeholder="Peso" onChange={props.setWeight} />
         <span className="icon is-large is-left">
           <i className="fas fa-weight"></i>
         </span>
-        <span className="icon is-large is-right">
-          <i className="fas fa-check"></i>
-        </span>
       </div>
+      <p className="help">Ex: 70.4</p>
     </div>
 
     <ContinueButton value={[props.age, props.height, props.weight]} link="/question3" />
