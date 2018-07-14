@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { OTHERS } from '../constants';
 
 function validateProps(props) {
   if (Array.isArray(props)) {
@@ -7,14 +8,13 @@ function validateProps(props) {
   } else {
     return props === null;
   }
-
 }
 
 const ContinueButton = ({ value, link }) => (
   <div>
     {validateProps(value) ?
-      <a className="button is-large is-primary" disabled >Continue</a> :
-      <Link className="button is-large is-primary" to={link} >Continue</Link>
+      <a className="button is-large is-primary" disabled >{OTHERS.questions.button.label}</a> :
+      <Link className="button is-large is-primary" to={link} >{OTHERS.questions.button.label}</Link>
     }
   </div>
 );

@@ -1,3 +1,5 @@
+import { FILES } from './constants';
+
 const CONSTANS = {
     LEVEL_RATIOS: {
         1: 1.2,
@@ -10,88 +12,8 @@ const CONSTANS = {
         1: 0,
         2: -500,
         3: 500,
-    },
-    FILES: {
-        1: [
-            {
-                text: '<1500 ganha peso com facilidade',
-                link: 'www.coisas.fixes',
-            },
-            {
-                text: '1500 – 2000 ganha peso com facilidade',
-                link: 'www.coisas.fixes',
-            },
-            {
-                text: '2000 – 2500 ganha peso com facilidade',
-                link: 'www.coisas.fixes',
-            },
-            {
-                text: '2500 – 3000 ganha peso com facilidade',
-                link: 'www.coisas.fixes',
-            },
-            {
-                text: '3000 – 3500 ganha peso com facilidade',
-                link: 'www.coisas.fixes',
-            },
-            {
-                text: '>3500 ganha peso com facilidade',
-                link: 'www.coisas.fixes',
-            },
-        ],
-        2: [
-            {
-                text: '<1500 ganha massa muscular facilidade',
-                link: 'www.xvideos.com',
-            },
-            {
-                text: '1500 – 2000 ganha massa muscular facilidade',
-                link: 'www.xvideos.com',
-            },
-            {
-                text: '2000 – 2500 ganha massa muscular facilidade',
-                link: 'www.xvideos.com',
-            },
-            {
-                text: '2500 – 3000 ganha massa muscular facilidade',
-                link: 'www.xvideos.com',
-            },
-            {
-                text: '3000 – 3500 ganha massa muscular facilidade',
-                link: 'www.xvideos.com',
-            },
-            {
-                text: '>3500 ganha massa muscular facilidade',
-                link: 'www.xvideos.com',
-            },
-        ],
-        3: [
-            {
-                text: '<1500 tenho muita dificuldade em ganhar peso',
-                link: 'www.buecenas.com'
-            },
-            {
-                text: '1500 – 2000 tenho muita dificuldade em ganhar peso',
-                link: 'www.buecenas.com'
-            },
-            {
-                text: '2000 – 2500 tenho muita dificuldade em ganhar peso',
-                link: 'www.buecenas.com'
-            },
-            {
-                text: '2500 – 3000 tenho muita dificuldade em ganhar peso',
-                link: 'www.buecenas.com'
-            },
-            {
-                text: '3000 – 3500 tenho muita dificuldade em ganhar peso',
-                link: 'www.buecenas.com'
-            },
-            {
-                text: '>3500 tenho muita dificuldade em ganhar peso',
-                link: 'www.buecenas.com'
-            },
-        ],
-    }
-};;
+    }, 
+};
 
 function calculateMBASAL(data) {
     if (data.sex === 'FEMALE') {
@@ -126,7 +48,7 @@ function calculateFinalResults(value) {
 }
 
 function getFileFromFinalResults(value, type) {
-    return CONSTANS.FILES[type][value];
+    return FILES[type][value];
 }
 
 export default {

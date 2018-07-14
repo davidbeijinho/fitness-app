@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { setSex } from "../actions/index";
 import ContinueButton from "./ContinuButton";
 import RadioButton from "./RadioButton";
-import QUESTIONS from '../questions';
+import { QUESTIONS } from '../constants';
 const DATA = QUESTIONS[0];
 
 const Question1 = (props) => (

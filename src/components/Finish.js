@@ -1,11 +1,27 @@
 import React from "react";
 import { connect } from 'react-redux'
 import utils from '../utils';
+import { OTHERS } from '../constants';
 
 const Finish = (props) => (
   <div className="box">
-    <h1 className="label is-large">Ora aqui esta o final do questionario questionario e tal</h1>
-    <a href="" > Download </a>
+    <h1 className="label is-large">{OTHERS.finish.header}</h1>
+    <p>
+      {utils.getFileFromFinalResults(
+        utils.calculateFinalResults(
+          utils.calculateGoalCENAS(
+            utils.calculateLevelCENAS(
+              utils.calculateMBASAL(props),
+              props.level),
+            props.goal)), props.goal).text}
+    </p>
+    <a href={utils.getFileFromFinalResults(
+      utils.calculateFinalResults(
+        utils.calculateGoalCENAS(
+          utils.calculateLevelCENAS(
+            utils.calculateMBASAL(props),
+            props.level),
+          props.goal)), props.goal).link} >{OTHERS.finish.buttonTex}</a>
 
     <table className="table">
       <thead>
@@ -63,14 +79,13 @@ const Finish = (props) => (
         <tr>
           <th>Resultado Final</th>
           <td>{
-            utils.getFileFromFinalResults(
             utils.calculateFinalResults(
-            utils.calculateGoalCENAS(
-            utils.calculateLevelCENAS(
-              utils.calculateMBASAL(props),
-              props.level),
-            props.goal)),props.goal)
-            }</td>
+              utils.calculateGoalCENAS(
+                utils.calculateLevelCENAS(
+                  utils.calculateMBASAL(props),
+                  props.level),
+                props.goal))
+          }</td>
         </tr>
 
       </tbody>

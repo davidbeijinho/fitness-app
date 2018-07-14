@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from 'react-redux'
 import { setAge, setHeight, setWeight } from "../actions/index";
 import ContinueButton from "./ContinuButton";
-import QUESTIONS from '../questions';
+import { QUESTIONS } from '../constants';
 const DATA = QUESTIONS[1];
 
 const Question2 = (props) => (

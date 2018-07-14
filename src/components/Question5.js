@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { setType } from "../actions/index";
 import ContinueButton from "./ContinuButton";
 import RadioButton from "./RadioButton";
-import QUESTIONS from '../questions';
+import { QUESTIONS } from '../constants';
 const DATA = QUESTIONS[4];
 const Question5 = (props) => (
   <div className="box">
