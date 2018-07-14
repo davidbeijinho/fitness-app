@@ -60,6 +60,18 @@ const Finish = (props) => (
               props.level),
             props.goal)}</td>
         </tr>
+        <tr>
+          <th>Resultado Final</th>
+          <td>{
+            utils.getFileFromFinalResults(
+            utils.calculateFinalResults(
+            utils.calculateGoalCENAS(
+            utils.calculateLevelCENAS(
+              utils.calculateMBASAL(props),
+              props.level),
+            props.goal)),props.goal)
+            }</td>
+        </tr>
 
       </tbody>
     </table>

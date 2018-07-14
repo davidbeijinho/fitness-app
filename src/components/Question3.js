@@ -2,44 +2,52 @@ import React from "react";
 import { setLevel } from "../actions/index";
 import ContinueButton from "./ContinuButton";
 import { connect } from 'react-redux'
+import RadioButton from "./RadioButton";
+import QUESTIONS from '../questions';
+const DATA = QUESTIONS[2];
 const Question3 = (props) => (
   <div className="box">
-    <h1 className="label is-large">NIVEL DE ACTIVIDADE FÍSICA?</h1>
+    <h1 className="label is-large">{DATA.title}</h1>
 
-    <div className="field">
-      <div className="control">
-        <input type="radio" name="level" value="1" id="level-1" onChange={props.sendState} checked={props.level === 1} />
-        <label htmlFor="level-1" className="radio">TENHO UMA VIDA COMPLETAMENTE SEDENTARIA</label>
-      </div>
-    </div>
+    <RadioButton
+      name={DATA.name}
+      value={DATA.options[0].value}
+      label={DATA.options[0].label}
+      onChange={props.sendState}
+      checked={props.level === DATA.options[0].value}
+    />
 
-    <div className="field">
-      <div className="control">
-        <input type="radio" name="level" value="2" id="level-2" onChange={props.sendState} checked={props.level === 2} />
-        <label htmlFor="level-2" className="radio">PRATICO ACTIVIDADE FÍSICA DE FORMA MUITO PONTUAL</label>
-      </div>
-    </div>
+    <RadioButton
+      name={DATA.name}
+      value={DATA.options[1].value}
+      label={DATA.options[1].label}
+      onChange={props.sendState}
+      checked={props.level === DATA.options[1].value}
+    />
 
-    <div className="field">
-      <div className="control">
-        <input type="radio" name="level" value="3" id="level-3" onChange={props.sendState} checked={props.level === 3} />
-        <label htmlFor="level-3" className="radio">PRATICO ACTIVIDADE FÍSICA 2 A 3 VEZES POR SEMANA</label>
-      </div>
-    </div>
+    <RadioButton
+      name={DATA.name}
+      value={DATA.options[2].value}
+      label={DATA.options[2].label}
+      onChange={props.sendState}
+      checked={props.level === DATA.options[2].value}
+    />
 
-    <div className="field">
-      <div className="control">
-        <input type="radio" name="level" value="4" id="level-4" onChange={props.sendState} checked={props.level === 4} />
-        <label htmlFor="level-4" className="radio">PRATICO ACTIVIDADE FÍSICA 4 A 5 VEZES POR SEMANA</label>
-      </div>
-    </div>
-
-    <div className="field">
-      <div className="control">
-        <input type="radio" name="level" value="5" id="level-5" onChange={props.sendState} checked={props.level === 5} />
-        <label htmlFor="level-5" className="radio">NÃO CONSIGO PASSAR UM DIA SEM PRATICAR ACTIVIDADE FÍSCA</label>
-      </div>
-    </div>
+    <RadioButton
+      name={DATA.name}
+      value={DATA.options[3].value}
+      label={DATA.options[3].label}
+      onChange={props.sendState}
+      checked={props.level === DATA.options[3].value}
+    />
+  
+    <RadioButton
+      name={DATA.name}
+      value={DATA.options[4].value}
+      label={DATA.options[4].label}
+      onChange={props.sendState}
+      checked={props.level === DATA.options[4].value}
+    />
 
     <ContinueButton value={props.level} link="/question4" />
   </div>

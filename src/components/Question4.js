@@ -2,30 +2,36 @@ import React from "react";
 import { connect } from 'react-redux'
 import { setGoal } from "../actions/index";
 import ContinueButton from "./ContinuButton";
+import RadioButton from "./RadioButton";
+import QUESTIONS from '../questions';
+const DATA = QUESTIONS[3];
 const Question4 = (props) => (
   <div className="box">
-    <h1 className="label is-large">OBJECTIVO</h1>
+    <h1 className="label is-large">{DATA.title}</h1>
 
-    <div className="field">
-      <div className="control">
-        <input name="goal" id="goal-1" type="radio" value="1" onChange={props.sendState} checked={props.goal === 1} />
-        <label htmlFor="goal-1" className="radio">SAÚDE/MANUTENÇÃO</label>
-      </div>
-    </div>
+    <RadioButton
+      name={DATA.name}
+      value={DATA.options[0].value}
+      label={DATA.options[0].label}
+      onChange={props.sendState}
+      checked={props.goal === DATA.options[0].value}
+    />
 
-    <div className="field">
-      <div className="control">
-        <input name="goal" id="goal-2" type="radio" value="2" onChange={props.sendState} checked={props.goal === 2} />
-        <label htmlFor="goal-2" className="radio">REDUÇÃO DE MASSA GORDA</label>
-      </div>
-    </div>
+    <RadioButton
+      name={DATA.name}
+      value={DATA.options[1].value}
+      label={DATA.options[1].label}
+      onChange={props.sendState}
+      checked={props.goal === DATA.options[1].value}
+    />
 
-    <div className="field">
-      <div className="control">
-        <input name="goal" id="goal-3" type="radio" value="3" onChange={props.sendState} checked={props.goal === 3} />
-        <label htmlFor="goal-3" className="radio">AUMENTO DE MASSA MUSCULAR</label>
-      </div>
-    </div>
+    <RadioButton
+      name={DATA.name}
+      value={DATA.options[2].value}
+      label={DATA.options[2].label}
+      onChange={props.sendState}
+      checked={props.goal === DATA.options[2].value}
+    />
 
     <ContinueButton value={props.goal} link="/question5" />
 

@@ -2,24 +2,29 @@ import React from "react";
 import { connect } from 'react-redux'
 import { setSex } from "../actions/index";
 import ContinueButton from "./ContinuButton";
+import RadioButton from "./RadioButton";
+import QUESTIONS from '../questions';
+const DATA = QUESTIONS[0];
 
 const Question1 = (props) => (
   <div className="box">
-    <h1 className="label is-large">Sexo gostas?</h1>
+    <h1 className="label is-large">{DATA.title}</h1>
 
-    <div className="field">
-      <div className="control">
-        <input type="radio" name="sex" value="MALE" id="sexMale" checked={props.sex === 'MALE'} onChange={props.sendState} />
-        <label className="radio" htmlFor="sexMale" >MALE</label>
-      </div>
-    </div>
+    <RadioButton
+      name={DATA.name}
+      value={DATA.options[0].value}
+      label={DATA.options[0].label}
+      onChange={props.sendState}
+      checked={props.sex === DATA.options[0].value}
+    />
 
-    <div className="field">
-      <div className="control">
-        <input type="radio" name="sex" value="FEMALE" id="sexFemale" checked={props.sex === 'FEMALE'} onChange={props.sendState} />
-        <label className="radio" htmlFor="sexFemale">FEMALE</label>
-      </div>
-    </div>
+    <RadioButton
+      name={DATA.name}
+      value={DATA.options[1].value}
+      label={DATA.options[1].label}
+      onChange={props.sendState}
+      checked={props.sex === DATA.options[1].value}
+    />
 
     <ContinueButton value={props.sex} link="/question2" />
 
