@@ -1,12 +1,13 @@
 import { createStore } from 'redux'
-import reducer from './reducer';
+import reducer from './reducers/reducer';
 
 // Create a Redux store holding the state of your app.
 // Its API is { subscribe, dispatch, getState }.
 const store = createStore(reducer)
 
 // You can use subscribe() to update the UI in response to state changes.
-// Normally you'd use a view binding library (e.g. React Redux) rather than subscribe() directly.
+// Normally you'd use a
+//  view binding library (e.g. React Redux) rather than subscribe() directly.
 // However it can also be handy to persist the current state in the localStorage.
 
 store.subscribe(() =>

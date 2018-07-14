@@ -8,21 +8,21 @@ const Question5 = (props) => (
 
     <div className="field">
       <div className="control">
-        <input name="type" id="type-1" value="1" type="radio" onChange={props.sendState} checked={props.type == 1} />
+        <input name="type" id="type-1" value="1" type="radio" onChange={props.sendState} checked={props.type === 1} />
         <label htmlFor="type-1" className="radio">GANHO MASSA MUSCULAR FACILMENTE</label>
       </div>
     </div>
 
     <div className="field">
       <div className="control">
-        <input name="type" id="type-2" value="2" type="radio" onChange={props.sendState} checked={props.type == 2} />
+        <input name="type" id="type-2" value="2" type="radio" onChange={props.sendState} checked={props.type === 2} />
         <label htmlFor="type-2" className="radio">TENHO MUITA DIFICULDADE EM GANHAR PESO</label>
       </div>
     </div>
 
     <div className="field">
       <div className="control">
-        <input name="type" id="type-3" value="3" type="radio" onChange={props.sendState} checked={props.type == 3} />
+        <input name="type" id="type-3" value="3" type="radio" onChange={props.sendState} checked={props.type === 3} />
         <label htmlFor="type-3" className="radio">GANHO PESO COM MUITA FACILIDADE</label>
       </div>
     </div>

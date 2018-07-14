@@ -8,21 +8,21 @@ const Question4 = (props) => (
 
     <div className="field">
       <div className="control">
-        <input name="goal" id="goal-1" type="radio" value="1" onChange={props.sendState} checked={props.goal == 1} />
+        <input name="goal" id="goal-1" type="radio" value="1" onChange={props.sendState} checked={props.goal === 1} />
         <label htmlFor="goal-1" className="radio">SAÚDE/MANUTENÇÃO</label>
       </div>
     </div>
 
     <div className="field">
       <div className="control">
-        <input name="goal" id="goal-2" type="radio" value="2" onChange={props.sendState} checked={props.goal == 2} />
+        <input name="goal" id="goal-2" type="radio" value="2" onChange={props.sendState} checked={props.goal === 2} />
         <label htmlFor="goal-2" className="radio">REDUÇÃO DE MASSA GORDA</label>
       </div>
     </div>
 
     <div className="field">
       <div className="control">
-        <input name="goal" id="goal-3" type="radio" value="3" onChange={props.sendState} checked={props.goal == 3} />
+        <input name="goal" id="goal-3" type="radio" value="3" onChange={props.sendState} checked={props.goal === 3} />
         <label htmlFor="goal-3" className="radio">AUMENTO DE MASSA MUSCULAR</label>
       </div>
     </div>

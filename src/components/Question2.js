@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { connect } from 'react-redux'
 import { setAge, setHeight, setWeight } from "../actions/index";
 import ContinueButton from "./ContinuButton";

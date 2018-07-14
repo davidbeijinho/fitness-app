@@ -9,14 +9,14 @@ const Question1 = (props) => (
 
     <div className="field">
       <div className="control">
-        <input type="radio" name="sex" value="MALE" id="sexMale" checked={props.sex == 'MALE'} onChange={props.sendState} />
+        <input type="radio" name="sex" value="MALE" id="sexMale" checked={props.sex === 'MALE'} onChange={props.sendState} />
         <label className="radio" htmlFor="sexMale" >MALE</label>
       </div>
     </div>
 
     <div className="field">
       <div className="control">
-        <input type="radio" name="sex" value="FEMALE" id="sexFemale" checked={props.sex == 'FEMALE'} onChange={props.sendState} />
+        <input type="radio" name="sex" value="FEMALE" id="sexFemale" checked={props.sex === 'FEMALE'} onChange={props.sendState} />
         <label className="radio" htmlFor="sexFemale">FEMALE</label>
       </div>
     </div>
