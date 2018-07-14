@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { HashRouter as Router, Route } from "react-router-dom";
 import Question1 from './components/Question1.js';
 import Question2 from './components/Question2.js';
 import Question3 from './components/Question3.js';
