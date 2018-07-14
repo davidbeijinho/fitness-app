@@ -1,4 +1,4 @@
-import { FILES } from './constants';
+import { RESULTS } from './constants';
 
 const CONSTANS = {
     LEVEL_RATIOS: {
@@ -12,7 +12,7 @@ const CONSTANS = {
         1: 0,
         2: -500,
         3: 500,
-    }, 
+    },
 };
 
 function calculateMBASAL(data) {
@@ -23,11 +23,11 @@ function calculateMBASAL(data) {
     }
 };
 
-function calculateLevelCENAS(mBasal, level) {
+function calculateLevel(mBasal, level) {
     return mBasal * CONSTANS.LEVEL_RATIOS[level];
 };
 
-function calculateGoalCENAS(level, goal) {
+function calculateGoal(level, goal) {
     return level + CONSTANS.GOAL[goal];
 };
 
@@ -47,14 +47,24 @@ function calculateFinalResults(value) {
     }
 }
 
-function getFileFromFinalResults(value, type) {
-    return FILES[type][value];
+function getFinalResults(value, type) {
+    return RESULTS[type][value];
+}
+
+function getText(data) {
+    return getFinalResults(calculateFinalResults(calculateGoal(calculateLevel(calculateMBASAL(data),data.level),data.goal)), data.goal).text;
+}
+
+function getLink(data) {
+    return getFinalResults(calculateFinalResults(calculateGoal(calculateLevel(calculateMBASAL(data),data.level),data.goal)), data.goal).link;
 }
 
 export default {
     calculateMBASAL,
-    calculateLevelCENAS,
-    calculateGoalCENAS,
+    calculateLevel,
+    calculateGoal,
     calculateFinalResults,
-    getFileFromFinalResults
+    getFinalResults,
+    getText,
+    getLink,
 };
