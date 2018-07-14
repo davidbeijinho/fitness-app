@@ -10,7 +10,7 @@ const Finish = (props) => (
     <p>{utils.getText(props)}</p>
     <a href={utils.getLink(props)} >{OTHERS.finish.buttonTex}</a>
 
-    <Results />
+    {/* <Results /> */}
   </div>
 );
 const mapStateToProps = (state) => state;
