@@ -15,7 +15,7 @@ const QUESTIONS = [
     },
     {
         title:'DADOS PESSOAIS',
-        option: [
+        options: [
             {
                 label: 'Idade',
                 help:'Ex: 24',
@@ -24,12 +24,12 @@ const QUESTIONS = [
             {
                 label: 'Altura',
                 help:'Ex: 181',
-                extraLabel: 'cm&nbsp;&nbsp;&nbsp;',
+                extraLabel: 'cm',
             },
             {
                 label: 'Peso',
                 help:'Ex: 70.4',
-                extraLabel: 'Kg&nbsp;&nbsp;&nbsp;',
+                extraLabel: 'Kg',
             }
         ]
     },
