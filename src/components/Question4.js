@@ -11,22 +11,20 @@ import Typography from '@material-ui/core/Typography';
 
 import { setGoal } from "../actions/index";
 import ContinueButton from "./ContinuButton";
-import { QUESTIONS } from '../constants';
 
-const DATA = QUESTIONS[3];
-const Question4 = (props) => (
+const Question4 =({question, value, sendState}) => (
   <Card>
   <CardContent>
-    <Typography gutterBottom variant="headline" component="h1">{DATA.title}</Typography>
+    <Typography gutterBottom variant="headline" component="h1">{question.title}</Typography>
 
     <FormControl component="fieldset" required >
       <RadioGroup
-        aria-label={DATA.name}
-        name={DATA.name}
-        value={String(props.value)}
-        onChange={props.sendState}
+        aria-label={question.name}
+        name={question.name}
+        value={String(value)}
+        onChange={sendState}
       >
-        {DATA.options.map(function (option, index) {
+        {question.options.map(function (option, index) {
           return <FormControlLabel key={index} value={String(option.value)} control={<Radio color="primary" />} label={option.label} />;
         })}
       </RadioGroup>
@@ -34,7 +32,7 @@ const Question4 = (props) => (
 
   </CardContent>
   <CardActions>
-    <ContinueButton value={props.value} link={DATA.link} />
+    <ContinueButton value={value} link={question.link} />
   </CardActions>
 </Card>
 );

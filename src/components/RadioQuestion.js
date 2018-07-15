@@ -1,5 +1,4 @@
 import React from "react";
-import { connect } from 'react-redux'
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
@@ -9,11 +8,10 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Typography from '@material-ui/core/Typography';
 
-import { setLevel } from "../actions/index";
 import ContinueButton from "./ContinuButton";
-const Question3 = ({question, value, sendState}) => (
-  
-<Card>
+
+const RadioQuestion = ({ question, value, sendState }) => (
+  <Card>
     <CardContent>
       <Typography gutterBottom variant="headline" component="h1">{question.title}</Typography>
 
@@ -21,11 +19,11 @@ const Question3 = ({question, value, sendState}) => (
         <RadioGroup
           aria-label={question.name}
           name={question.name}
-          value={String(value)}
+          value={value}
           onChange={sendState}
         >
           {question.options.map(function (option, index) {
-            return <FormControlLabel key={index} value={String(option.value)} control={<Radio color="primary" />} label={option.label} />;
+            return <FormControlLabel key={index} value={option.value} control={<Radio color="primary" />} label={option.label} />;
           })}
         </RadioGroup>
       </FormControl>
@@ -37,21 +35,5 @@ const Question3 = ({question, value, sendState}) => (
   </Card>
 );
 
-const mapStateToProps = (state) => {
-  return {
-    value: state.level,
-  }
-}
 
-const mapDispatchToProps = dispatch => {
-  return {
-    sendState: changeEvent => {
-      dispatch(setLevel(Number(changeEvent.target.value)))
-    }
-  }
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Question3);
+export default RadioQuestion;

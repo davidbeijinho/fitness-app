@@ -22,16 +22,19 @@ export const QUESTIONS = [
                 label: 'Idade',
                 help: 'Ex: 24',
                 extraLabel: 'anos',
+                id:'age',
             },
             {
                 label: 'Altura',
                 help: 'Ex: 181',
                 extraLabel: 'cm',
+                id:'height',
             },
             {
                 label: 'Peso',
                 help: 'Ex: 70.4',
                 extraLabel: 'Kg',
+                id:'weight',
             }
         ]
     },
