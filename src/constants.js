@@ -2,6 +2,7 @@ export const QUESTIONS = [
     {
         title: 'Sexo gostas?',
         name: 'sex',
+        link:'/question2',
         options: [
             {
                 label: 'MALE',
@@ -15,6 +16,7 @@ export const QUESTIONS = [
     },
     {
         title: 'DADOS PESSOAIS',
+        link:'/question3',
         options: [
             {
                 label: 'Idade',
@@ -36,6 +38,7 @@ export const QUESTIONS = [
     {
         title: 'NIVEL DE ACTIVIDADE FÍSICA?',
         name: 'level',
+        link:'/question4',
         options: [
             {
                 label: 'TENHO UMA VIDA COMPLETAMENTE SEDENTARIA',
@@ -62,6 +65,7 @@ export const QUESTIONS = [
     {
         title: 'OBJECTIVO?',
         name: 'goal',
+        link:'/question5',
         options: [
             {
                 label: 'SAÚDE/MANUTENÇÃO',
@@ -80,6 +84,7 @@ export const QUESTIONS = [
     {
         title: 'COM QUAL DESTAS SITUAÇÕES SE IDENTIFICA MAIS',
         name: 'type',
+        link:'/finish',
         options: [
             {
                 label: 'AUMENTO DE MASSA MUSCULAR',

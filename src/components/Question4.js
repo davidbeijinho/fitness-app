@@ -1,46 +1,47 @@
 import React from "react";
 import { connect } from 'react-redux'
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import FormControl from '@material-ui/core/FormControl';
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Typography from '@material-ui/core/Typography';
+
 import { setGoal } from "../actions/index";
 import ContinueButton from "./ContinuButton";
-import RadioButton from "./RadioButton";
 import { QUESTIONS } from '../constants';
+
 const DATA = QUESTIONS[3];
 const Question4 = (props) => (
-  <div className="box">
-    <h1 className="label is-large">{DATA.title}</h1>
+  <Card>
+  <CardContent>
+    <Typography gutterBottom variant="headline" component="h1">{DATA.title}</Typography>
 
-    <RadioButton
-      name={DATA.name}
-      value={DATA.options[0].value}
-      label={DATA.options[0].label}
-      onChange={props.sendState}
-      checked={props.goal === DATA.options[0].value}
-    />
+    <FormControl component="fieldset" required >
+      <RadioGroup
+        aria-label={DATA.name}
+        name={DATA.name}
+        value={String(props.value)}
+        onChange={props.sendState}
+      >
+        {DATA.options.map(function (option, index) {
+          return <FormControlLabel key={index} value={String(option.value)} control={<Radio color="primary" />} label={option.label} />;
+        })}
+      </RadioGroup>
+    </FormControl>
 
-    <RadioButton
-      name={DATA.name}
-      value={DATA.options[1].value}
-      label={DATA.options[1].label}
-      onChange={props.sendState}
-      checked={props.goal === DATA.options[1].value}
-    />
-
-    <RadioButton
-      name={DATA.name}
-      value={DATA.options[2].value}
-      label={DATA.options[2].label}
-      onChange={props.sendState}
-      checked={props.goal === DATA.options[2].value}
-    />
-
-    <ContinueButton value={props.goal} link="/question5" />
-
-  </div>
+  </CardContent>
+  <CardActions>
+    <ContinueButton value={props.value} link={DATA.link} />
+  </CardActions>
+</Card>
 );
 
 const mapStateToProps = (state) => {
   return {
-    goal: state.goal,
+    value: state.goal,
   }
 }
 

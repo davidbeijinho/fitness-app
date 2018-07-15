@@ -1,77 +1,61 @@
 import React from "react";
 import { connect } from 'react-redux'
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import FormControl from '@material-ui/core/FormControl';
+import Input from '@material-ui/core/Input';
+import InputLabel from '@material-ui/core/InputLabel';
+
+import Typography from '@material-ui/core/Typography';
 import { setAge, setHeight, setWeight } from "../actions/index";
 import ContinueButton from "./ContinuButton";
 import { QUESTIONS } from '../constants';
+
 const DATA = QUESTIONS[1];
 
 const Question2 = (props) => (
-  <div className="box">
-    <h1 className="label is-large">{DATA.title}</h1>
 
-    <div className="field">
-      <div className="field-label"></div>
-      <div className="field-body">
-        <div className="field is-expanded">
-          <div className="field has-addons">
-            <p className="control is-expanded has-icons-left">
-              <input className="input is-large" type="number" placeholder={DATA.options[0].label} onChange={props.setAge} />
-              <span className="icon is-large is-left">
-                <i className="fas fa-user"></i>
-              </span>
-            </p>
-            <p className="control">
-              <a className="button is-large is-static">{DATA.options[0].extraLabel}</a>
-            </p>
-          </div>
-          <p className="help">{DATA.options[0].help}</p>
-        </div>
-      </div>
-    </div>
+  <Card>
+    <CardContent>
+      <Typography gutterBottom variant="headline" component="h1">{DATA.title}</Typography>
 
-    <div className="field">
-      <div className="field-label"></div>
-      <div className="field-body">
-        <div className="field is-expanded">
-          <div className="field has-addons">
-            <p className="control is-expanded has-icons-left">
-              <input className="input is-large" type="number" placeholder={DATA.options[1].label} onChange={props.setHeight} />
-              <span className="icon is-large is-left">
-                <i className="fas fa-ruler-vertical"></i>
-              </span>
-            </p>
-            <p className="control">
-              <a className="button is-large is-static">{DATA.options[1].extraLabel}</a>
-            </p>
-          </div>
-          <p className="help">{DATA.options[1].help}</p>
-        </div>
-      </div>
-    </div>
+      <FormControl fullWidth aria-describedby="weight-helper-text" >
+        <InputLabel htmlFor={DATA.options[0].id}>{DATA.options[0].label}</InputLabel>
+        <Input
+          id={DATA.options[0].id}
+          onChange={props.setAge}
+          endAdornment={<InputAdornment position="end">{DATA.options[0].extraLabel}</InputAdornment>}
+          inputProps={{ 'aria-label': DATA.options[0].label, }}
+        />
+      </FormControl>
 
-    <div className="field">
-      <div className="field-label"></div>
-      <div className="field-body">
-        <div className="field is-expanded">
-          <div className="field has-addons">
-            <p className="control is-expanded has-icons-left">
-              <input className="input is-large" type="number" placeholder={DATA.options[2].label} onChange={props.setWeight} />
-              <span className="icon is-large is-left">
-                <i className="fas fa-weight"></i>
-              </span>
-            </p>
-            <p className="control">
-              <a className="button is-large is-static">{DATA.options[2].extraLabel}</a>
-            </p>
-          </div>
-          <p className="help">{DATA.options[2].help}</p>
-        </div>
-      </div>
-    </div>
+      <FormControl fullWidth aria-describedby="weight-helper-text" >
+        <InputLabel htmlFor={DATA.options[1].id}>{DATA.options[1].label}</InputLabel>
+        <Input
+          id={DATA.options[1].id}
+          onChange={props.setHeight}
+          endAdornment={<InputAdornment position="end">{DATA.options[1].extraLabel}</InputAdornment>}
+          inputProps={{ 'aria-label': DATA.options[1].label, }}
+        />
+      </FormControl>
 
-    <ContinueButton value={[props.age, props.height, props.weight]} link="/question3" />
+      <FormControl fullWidth aria-describedby="weight-helper-text" >
+        <InputLabel htmlFor={DATA.options[2].id}>{DATA.options[2].label}</InputLabel>
+        <Input
+          id={DATA.options[2].id}
+          onChange={props.setWeight}
+          endAdornment={<InputAdornment position="end">{DATA.options[2].extraLabel}</InputAdornment>}
+          inputProps={{ 'aria-label': DATA.options[2].label, }}
+        />
+      </FormControl>
 
-  </div>
+    </CardContent>
+    <CardActions>
+      <ContinueButton value={[props.age, props.height, props.weight]} link={DATA.link} />
+    </CardActions>
+  </Card>
 );
 
 

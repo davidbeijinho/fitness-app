@@ -1,39 +1,47 @@
 import React from "react";
 import { connect } from 'react-redux'
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import FormControl from '@material-ui/core/FormControl';
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Typography from '@material-ui/core/Typography';
+
 import { setSex } from "../actions/index";
 import ContinueButton from "./ContinuButton";
-import RadioButton from "./RadioButton";
 import { QUESTIONS } from '../constants';
 const DATA = QUESTIONS[0];
 
 const Question1 = (props) => (
-  <div className="box">
-    <h1 className="label is-large">{DATA.title}</h1>
+  <Card>
+    <CardContent>
+      <Typography gutterBottom variant="headline" component="h1">{DATA.title}</Typography>
 
-    <RadioButton
-      name={DATA.name}
-      value={DATA.options[0].value}
-      label={DATA.options[0].label}
-      onChange={props.sendState}
-      checked={props.sex === DATA.options[0].value}
-    />
+      <FormControl component="fieldset" required >
+        <RadioGroup
+          aria-label={DATA.name}
+          name={DATA.name}
+          value={props.value}
+          onChange={props.sendState}
+        >
+          {DATA.options.map(function (option, index) {
+            return <FormControlLabel key={index} value={option.value} control={<Radio color="primary" />} label={option.label} />;
+          })}
+        </RadioGroup>
+      </FormControl>
 
-    <RadioButton
-      name={DATA.name}
-      value={DATA.options[1].value}
-      label={DATA.options[1].label}
-      onChange={props.sendState}
-      checked={props.sex === DATA.options[1].value}
-    />
-
-    <ContinueButton value={props.sex} link="/question2" />
-
-  </div>
+    </CardContent>
+    <CardActions>
+      <ContinueButton value={props.value} link={DATA.link} />
+    </CardActions>
+  </Card>
 );
 
 const mapStateToProps = (state) => {
   return {
-    sex: state.sex,
+    value: state.sex,
   }
 }
 

@@ -1,61 +1,51 @@
 import React from "react";
+import { connect } from 'react-redux'
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import FormControl from '@material-ui/core/FormControl';
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Typography from '@material-ui/core/Typography';
+
 import { setLevel } from "../actions/index";
 import ContinueButton from "./ContinuButton";
-import { connect } from 'react-redux'
-import RadioButton from "./RadioButton";
 import { QUESTIONS } from '../constants';
+
 const DATA = QUESTIONS[2];
 const Question3 = (props) => (
-  <div className="box">
-    <h1 className="label is-large">{DATA.title}</h1>
-
-    <RadioButton
-      name={DATA.name}
-      value={DATA.options[0].value}
-      label={DATA.options[0].label}
-      onChange={props.sendState}
-      checked={props.level === DATA.options[0].value}
-    />
-
-    <RadioButton
-      name={DATA.name}
-      value={DATA.options[1].value}
-      label={DATA.options[1].label}
-      onChange={props.sendState}
-      checked={props.level === DATA.options[1].value}
-    />
-
-    <RadioButton
-      name={DATA.name}
-      value={DATA.options[2].value}
-      label={DATA.options[2].label}
-      onChange={props.sendState}
-      checked={props.level === DATA.options[2].value}
-    />
-
-    <RadioButton
-      name={DATA.name}
-      value={DATA.options[3].value}
-      label={DATA.options[3].label}
-      onChange={props.sendState}
-      checked={props.level === DATA.options[3].value}
-    />
   
-    <RadioButton
-      name={DATA.name}
-      value={DATA.options[4].value}
-      label={DATA.options[4].label}
-      onChange={props.sendState}
-      checked={props.level === DATA.options[4].value}
-    />
+<Card>
+    <CardContent>
+      <Typography gutterBottom variant="headline" component="h1">{DATA.title}</Typography>
 
-    <ContinueButton value={props.level} link="/question4" />
-  </div>
+      <FormControl component="fieldset" required >
+        <RadioGroup
+          aria-label={DATA.name}
+          name={DATA.name}
+          value={String(props.value)}
+          onChange={props.sendState}
+        >
+          {DATA.options.map(function (option, index) {
+            return <FormControlLabel key={index} value={String(option.value)} control={<Radio color="primary" />} label={option.label} />;
+          })}
+        </RadioGroup>
+      </FormControl>
+
+    </CardContent>
+    <CardActions>
+      <ContinueButton value={props.value} link={DATA.link} />
+    </CardActions>
+  </Card>
+
 );
+
+
 
 const mapStateToProps = (state) => {
   return {
-    level: state.level,
+    value: state.level,
   }
 }
 
