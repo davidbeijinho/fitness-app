@@ -1,13 +1,15 @@
 import React, { Component } from 'react/index.js';
-import { connect } from 'react-redux'
-import { HashRouter as Router, Route } from "react-router-dom";
+import { connect } from 'react-redux';
+import { HashRouter as Router, Route } from 'react-router-dom';
 import RadioQuestion from './RadioQuestion.js';
 import InputQuestion from './InputQuestion.js';
 import Welcome from './Welcome.js';
 import Finish from './Finish.js';
 import Loading from './Loading.js';
 
-import { setSex, setLevel, setGoal, setType, setAge, setHeight, setWeight } from "../actions/index.js";
+import {
+ setSex, setLevel, setGoal, setType, setAge, setHeight, setWeight 
+} from '../actions/index.js';
 import API from '../utils/api.js';
 
 class App extends Component {
@@ -26,14 +28,14 @@ class App extends Component {
           ...values,
           loading: false,
         });
-      }
+      },
     );
   }
 
   render() {
     if (this.state.loading) {
       return (<Loading />);
-    } else {
+    } 
       return (
         <Router>
           <div>
@@ -51,16 +53,13 @@ class App extends Component {
           </div>
         </Router>
       );
-    }
+    
   }
 }
 
-const mapStateToProps = (state) => {
-  return state;
-}
+const mapStateToProps = (state) => state;
 
-const mapDispatchToProps = dispatch => {
-  return {
+const mapDispatchToProps = (dispatch) => ({
     setSex: changeEvent => {
       dispatch(setSex(changeEvent.target.value))
     },
@@ -82,10 +81,9 @@ const mapDispatchToProps = dispatch => {
     setWeight: changeEvent => {
       dispatch(setWeight(Number(changeEvent.target.value)))
     }
-  }
-}
+  });
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(App);

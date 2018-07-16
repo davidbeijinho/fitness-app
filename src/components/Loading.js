@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
@@ -10,10 +10,11 @@ const Loading = () => (
     <Card>
       <CardHeader title="Loading" />
       <CardContent>
-        <p>Loading data.</p>
+        <p>
+Loading data.
+</p>
       </CardContent>
-      <CardActions>
-      </CardActions>
+      <CardActions />
     </Card>
     <LinearProgress />
   </div>

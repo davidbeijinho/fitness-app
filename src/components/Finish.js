@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import PropTypes from 'prop-types';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -8,7 +8,7 @@ import CardHeader from '@material-ui/core/CardHeader';
 import utils from '../utils/utils.js';
 // import Results from "./Results";
 
-const Finish = (props) => (
+const Finish = props => (
   <Card>
     <CardHeader title={props.title} />
     <CardContent>
@@ -16,8 +16,10 @@ const Finish = (props) => (
       {/* <Results {...props}/> */}
     </CardContent>
     <CardActions>
-      <a href={utils.getLink(props)} >
-        <Button variant="contained" color="primary">{props.buttonLabel}</Button>
+      <a href={utils.getLink(props)}>
+        <Button variant="contained" color="primary">
+{props.buttonLabel}
+</Button>
       </a>
     </CardActions>
   </Card>

@@ -1,13 +1,17 @@
-import React from "react";
+import React from 'react';
 import PropTypes from 'prop-types';
-import CardQuestion from "./CardQuestion";
+import CardQuestion from './CardQuestion';
 
-const Welcome = ({title, link, value, content, enabledLabel, disabledLabel}) => (
- <div>
- <CardQuestion title={title} link={link} value={value} enabledLabel={enabledLabel} disabledLabel={disabledLabel} >
-    <p>{content}</p>
-  </CardQuestion>
-  </div>
+const Welcome = ({ 
+title, link, value, content, enabledLabel, disabledLabel 
+}) => (
+  <div>
+   <CardQuestion title={title} link={link} value={value} enabledLabel={enabledLabel} disabledLabel={disabledLabel}>
+   <p>
+{content}
+</p>
+ </CardQuestion>
+ </div>
 );
 
 Welcome.propTypes = {

@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import PropTypes from 'prop-types';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -8,12 +8,16 @@ import TableRow from '@material-ui/core/TableRow';
 
 import utils from '../utils/utils.js';
 
-const Results = (props) => (
+const Results = props => (
   <Table>
     <TableHead>
       <TableRow>
-        <TableCell>Field</TableCell>
-        <TableCell numeric>Value</TableCell>
+        <TableCell>
+Field
+</TableCell>
+        <TableCell numeric>
+Value
+</TableCell>
       </TableRow>
     </TableHead>
     <TableBody>
@@ -24,7 +28,7 @@ const Results = (props) => (
         },
         {
           title: 'Age',
-          value: props.age
+          value: props.age,
         },
         {
           title: 'Height',
@@ -61,17 +65,15 @@ const Results = (props) => (
         {
           title: 'Resultado Final',
           value: utils.calculateFinalResults(utils.calculateGoal(utils.calculateLevel(utils.calculateMBASAL(props), props.level), props.goal)),
-        }
-      ].map((n, index) => {
-        return (
+        },
+      ].map((n, index) => (
           <TableRow key={index}>
             <TableCell component="th" scope="row">
               {n.title}
             </TableCell>
             <TableCell numeric>{n.value}</TableCell>
           </TableRow>
-        );
-      })}
+        ))}
     </TableBody>
   </Table>
 );

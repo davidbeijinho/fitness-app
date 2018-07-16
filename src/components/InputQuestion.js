@@ -1,13 +1,15 @@
-import React from "react";
+import React from 'react';
 import PropTypes from 'prop-types';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import FormControl from '@material-ui/core/FormControl';
-import CardQuestion from "./CardQuestion";
 import TextField from '@material-ui/core/TextField';
+import CardQuestion from "./CardQuestion";
 
-const InputQuestion = ({ question, value, sendState, enabledLabel, disabledLabel }) => (
+const InputQuestion = ({
+ question, value, sendState, enabledLabel, disabledLabel 
+}) => (
   <CardQuestion title={question.title} link={question.link} value={value} enabledLabel={enabledLabel} disabledLabel={disabledLabel}>
-    {question.options.map(function (option) {
+    {question.options.map((option) => {
       return <FormControl key={option.id} fullWidth aria-describedby="weight-helper-text" >
         <TextField
           InputProps={{
