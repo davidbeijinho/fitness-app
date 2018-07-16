@@ -38,7 +38,6 @@ const InputQuestion = ({
 InputQuestion.propTypes = {
   question: PropTypes.shape({
     title: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
     link: PropTypes.string.isRequired,
     options: PropTypes.arrayOf(
       PropTypes.shape({
