@@ -6,9 +6,18 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 
-import utils from '../utils/utils.js';
+import utils from '../utils/utils';
 
-const Results = props => (
+const Results = ({
+  sex,
+  age,
+  height,
+  weight,
+  level,
+  goal,
+  type,
+  results,
+}) => (
   <Table>
     <TableHead>
       <TableRow>
@@ -24,50 +33,90 @@ Value
       {[
         {
           title: 'Sex',
-          value: props.sex,
+          value: sex,
         },
         {
           title: 'Age',
-          value: props.age,
+          value: age,
         },
         {
           title: 'Height',
-          value: props.height,
+          value: height,
         },
         {
           title: 'Weight',
-          value: props.weight,
+          value: weight,
         },
         {
           title: 'Level',
-          value: props.level,
+          value: level,
         },
         {
           title: 'Goal',
-          value: props.goal,
+          value: goal,
         },
         {
           title: 'Type',
-          value: props.type,
+          value: type,
         },
         {
           title: 'M BASAL',
-          value: utils.calculateMBASAL(props),
+          value: utils.calculateMBASAL({
+            sex,
+            age,
+            height,
+            weight,
+            level,
+            goal,
+            type,
+            results,
+          }),
         },
         {
           title: 'LEVEL',
-          value: utils.calculateLevel(utils.calculateMBASAL(props), props.level),
+          value: utils.calculateLevel(utils.calculateMBASAL({
+            sex,
+            age,
+            height,
+            weight,
+            level,
+            goal,
+            type,
+            results,
+          }), level),
         },
         {
           title: 'GOAL ',
-          value: utils.calculateGoal(utils.calculateLevel(utils.calculateMBASAL(props), props.level), props.goal),
+          value: utils.calculateGoal(utils.calculateLevel(utils.calculateMBASAL({
+            sex,
+            age,
+            height,
+            weight,
+            level,
+            goal,
+            type,
+            results,
+          }), level), goal),
         },
         {
           title: 'Resultado Final',
-          value: utils.calculateFinalResults(utils.calculateGoal(utils.calculateLevel(utils.calculateMBASAL(props), props.level), props.goal)),
+          value: utils
+            .calculateFinalResults(utils
+              .calculateGoal(utils
+                .calculateLevel(utils
+                  .calculateMBASAL({
+                    sex,
+                    age,
+                    height,
+                    weight,
+                    level,
+                    goal,
+                    type,
+                    results,
+                  }), level), goal)),
         },
-      ].map((n, index) => (
-        <TableRow key={index}>
+      ].map(n => (
+        <TableRow key={n.title}>
           <TableCell component="th" scope="row">
             {n.title}
           </TableCell>

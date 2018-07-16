@@ -8,14 +8,20 @@ import CardQuestion from './CardQuestion';
 const InputQuestion = ({
   question, value, sendState, enabledLabel, disabledLabel,
 }) => (
-  <CardQuestion title={question.title} link={question.link} value={value} enabledLabel={enabledLabel} disabledLabel={disabledLabel}>
+  <CardQuestion
+    title={question.title}
+    link={question.link}
+    value={value}
+    enabledLabel={enabledLabel}
+    disabledLabel={disabledLabel}
+  >
     {question.options.map(option => (
       <FormControl key={option.id} fullWidth aria-describedby="weight-helper-text">
         <TextField
           InputProps={{
             endAdornment: <InputAdornment position="end">
               {option.adornment}
-                          </InputAdornment>,
+            </InputAdornment>,
           }}
           id={option.id}
           type="number"

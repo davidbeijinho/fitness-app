@@ -48,11 +48,29 @@ function getFinalResults(value, type, results) {
 }
 
 function getText(data) {
-  return getFinalResults(calculateFinalResults(calculateGoal(calculateLevel(calculateMBASAL(data), data.level), data.goal)), data.type, data.results).text;
+  return getFinalResults(
+    calculateFinalResults(
+      calculateGoal(
+        calculateLevel(
+          calculateMBASAL(data), data.level,
+        ), data.goal,
+      ),
+    ), data.type, data.results,
+  )
+    .text;
 }
 
 function getLink(data) {
-  return getFinalResults(calculateFinalResults(calculateGoal(calculateLevel(calculateMBASAL(data), data.level), data.goal)), data.type, data.results).link;
+  return getFinalResults(
+    calculateFinalResults(
+      calculateGoal(
+        calculateLevel(
+          calculateMBASAL(data), data.level,
+        ), data.goal,
+      ),
+    ), data.type, data.results,
+  )
+    .link;
 }
 
 export default {

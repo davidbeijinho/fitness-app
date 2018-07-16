@@ -8,17 +8,38 @@ import CardHeader from '@material-ui/core/CardHeader';
 import utils from '../utils/utils';
 // import Results from "./Results";
 
-const Finish = {title, buttonLabel } => (
+const Finish = ({
+  title, buttonLabel, sex, age, height, weight, level, goal, type, results,
+}) => (
   <Card>
     <CardHeader title={title} />
     <CardContent>
-      {utils.getText(props)}
+      {utils.getText({
+        sex,
+        age,
+        height,
+        weight,
+        level,
+        goal,
+        type,
+        results,
+      })}
       {/* <Results {...props}/> */}
     </CardContent>
     <CardActions>
-      <a href={utils.getLink(props)}>
+      <a href={utils.getLink({
+        sex,
+        age,
+        height,
+        weight,
+        level,
+        goal,
+        type,
+        results,
+      })}
+      >
         <Button variant="contained" color="primary">
-          {props.buttonLabel}
+          {buttonLabel}
         </Button>
       </a>
     </CardActions>

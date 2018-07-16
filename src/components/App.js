@@ -8,7 +8,13 @@ import Finish from './Finish';
 import Loading from './Loading';
 
 import {
-  setSex, setLevel, setGoal, setType, setAge, setHeight, setWeight,
+  setSex as setSexAction,
+  setLevel as setLevelAction,
+  setGoal as setGoalAction,
+  setType as setTypeAction,
+  setAge as setAgeAction,
+  setHeight as setHeightAction,
+  setWeight as setWeightAction,
 } from '../actions/index';
 import API from '../utils/api';
 
@@ -32,36 +38,56 @@ class App extends Component {
     );
   }
 
-  render({ state, props }) {
-    if (state.loading) {
+  render() {
+    const { loading } = this.state;
+    if (loading) {
       return (<Loading />);
     }
+    const {
+      others,
+      questions,
+      age,
+      sex,
+      height,
+      weight,
+      setAge,
+      setSex,
+      setLevel,
+      setHeight,
+      setGoal,
+      setWeight,
+      setType,
+      level,
+      type,
+      goal,
+      results,
+    } = this.state;
     return (
       <Router>
         <div>
-          <Route exact path="/" render={() => <Welcome title={state.others.welcome.title} link="/question1" value={1} content={state.others.welcome.text} enabledLabel={state.others.questions.button.label.enabled} disabledLabel={state.others.questions.button.label.disabled} />} />
-          <Route exact path="/question1" render={() => <RadioQuestion question={state.questions[0]} value={props.sex} sendState={props.setSex} enabledLabel={state.others.questions.button.label.enabled} disabledLabel={state.others.questions.button.label.disabled} />} />
+          <Route exact path="/" render={() => <Welcome title={others.welcome.title} link="/question1" value={1} content={others.welcome.text} enabledLabel={others.questions.button.label.enabled} disabledLabel={others.questions.button.label.disabled} />} />
+          <Route exact path="/question1" render={() => <RadioQuestion question={questions[0]} value={sex} sendState={setSex} enabledLabel={others.questions.button.label.enabled} disabledLabel={others.questions.button.label.disabled} />} />
           <Route
             exact
             path="/question2"
             render={() => (
               <InputQuestion
-                question={state.questions[1]}
-                value={[props.age, props.height, props.weight]}
+                question={questions[1]}
+                value={[age, height, weight]}
                 sendState={{
-                  setAge: props.setAge,
-                  setHeight: props.setHeight,
-                  setWeight: props.setWeight,
+                  setAge,
+                  setHeight,
+                  setWeight,
                 }}
-                enabledLabel={state.others.questions.button.label.enabled}
-                disabledLabel={state.others.questions.button.label.disabled}
+                enabledLabel={others.questions.button.label.enabled}
+                disabledLabel={others.questions.button.label.disabled}
               />
             )}
           />
-          <Route exact path="/question3" render={() => <RadioQuestion question={state.questions[2]} value={props.level} sendState={props.setLevel} enabledLabel={state.others.questions.button.label.enabled} disabledLabel={state.others.questions.button.label.disabled} />} />
-          <Route exact path="/question4" render={() => <RadioQuestion question={state.questions[3]} value={props.goal} sendState={props.setGoal} enabledLabel={state.others.questions.button.label.enabled} disabledLabel={state.others.questions.button.label.disabled} />} />
-          <Route exact path="/question5" render={() => <RadioQuestion question={state.questions[4]} value={props.type} sendState={props.setType} enabledLabel={state.others.questions.button.label.enabled} disabledLabel={state.others.questions.button.label.disabled} />} />
-          <Route exact path="/finish" render={() => <Finish title={state.others.finish.title} buttonLabel={state.others.finish.buttonTex} results={state.results} {...props} />} />
+          <Route exact path="/question3" render={() => <RadioQuestion question={questions[2]} value={level} sendState={setLevel} enabledLabel={others.questions.button.label.enabled} disabledLabel={others.questions.button.label.disabled} />} />
+          <Route exact path="/question4" render={() => <RadioQuestion question={questions[3]} value={goal} sendState={setGoal} enabledLabel={others.questions.button.label.enabled} disabledLabel={others.questions.button.label.disabled} />} />
+          <Route exact path="/question5" render={() => <RadioQuestion question={questions[4]} value={type} sendState={setType} enabledLabel={others.questions.button.label.enabled} disabledLabel={others.questions.button.label.disabled} />} />
+          <Route exact path="/finish" render={() => <Finish title={others.finish.title} buttonLabel={others.finish.buttonTex} results={results} />} />
         </div>
       </Router>
     );
@@ -72,25 +98,25 @@ const mapStateToProps = state => state;
 
 const mapDispatchToProps = dispatch => ({
   setSex: (changeEvent) => {
-    dispatch(setSex(changeEvent.target.value));
+    dispatch(setSexAction(changeEvent.target.value));
   },
   setLevel: (changeEvent) => {
-    dispatch(setLevel(Number(changeEvent.target.value)));
+    dispatch(setLevelAction(Number(changeEvent.target.value)));
   },
   setGoal: (changeEvent) => {
-    dispatch(setGoal(Number(changeEvent.target.value)));
+    dispatch(setGoalAction(Number(changeEvent.target.value)));
   },
   setType: (changeEvent) => {
-    dispatch(setType(Number(changeEvent.target.value)));
+    dispatch(setTypeAction(Number(changeEvent.target.value)));
   },
   setAge: (changeEvent) => {
-    dispatch(setAge(Number(changeEvent.target.value)));
+    dispatch(setAgeAction(Number(changeEvent.target.value)));
   },
   setHeight: (changeEvent) => {
-    dispatch(setHeight(Number(changeEvent.target.value)));
+    dispatch(setHeightAction(Number(changeEvent.target.value)));
   },
   setWeight: (changeEvent) => {
-    dispatch(setWeight(Number(changeEvent.target.value)));
+    dispatch(setWeightAction(Number(changeEvent.target.value)));
   },
 });
 

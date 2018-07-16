@@ -9,7 +9,13 @@ import CardQuestion from './CardQuestion';
 const RadioQuestion = ({
   question, value, sendState, enabledLabel, disabledLabel,
 }) => (
-  <CardQuestion title={question.title} link={question.link} value={value} enabledLabel={enabledLabel} disabledLabel={disabledLabel}>
+  <CardQuestion
+    title={question.title}
+    link={question.link}
+    value={value}
+    enabledLabel={enabledLabel}
+    disabledLabel={disabledLabel}
+  >
     <FormControl component="fieldset" required>
       <RadioGroup
         aria-label={question.name}
