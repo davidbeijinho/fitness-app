@@ -1,66 +1,90 @@
 import React from "react";
-import { connect } from 'react-redux'
-import utils from '../utils';
+import PropTypes from 'prop-types';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
 
-const Finish = (props) => (
-    <table className="table">
-      <thead>
-        <tr>
-          <th>Field</th>
-          <th>Value</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th>Sex</th>
-          <td>{props.sex}</td>
-        </tr>
-        <tr>
-          <th>Age</th>
-          <td>{props.age}</td>
-        </tr>
-        <tr>
-          <th>Height</th>
-          <td>{props.height}</td>
-        </tr>
-        <tr>
-          <th>Weight</th>
-          <td>{props.weight}</td>
-        </tr>
-        <tr>
-          <th>Level</th>
-          <td>{props.level}</td>
-        </tr>
-        <tr>
-          <th>Goal</th>
-          <td>{props.goal}</td>
-        </tr>
-        <tr>
-          <th>Type</th>
-          <td>{props.type}</td>
-        </tr>
-        <tr>
-          <th>M BASAL</th>
-          <td>{utils.calculateMBASAL(props)}</td>
-        </tr>
-        <tr>
-          <th>LEVEL</th>
-          <td>{utils.calculateLevel(utils.calculateMBASAL(props), props.level)}</td>
-        </tr>
-        <tr>
-          <th>GOAL </th>
-          <td>{utils.calculateGoal(utils.calculateLevel(utils.calculateMBASAL(props),props.level),props.goal)}</td>
-        </tr>
-        <tr>
-          <th>Resultado Final</th>
-          <td>{utils.calculateFinalResults(utils.calculateGoal(utils.calculateLevel(utils.calculateMBASAL(props),props.level),props.goal))}</td>
-        </tr>
+import utils from '../utils/utils.js';
 
-      </tbody>
-    </table>
+const Results = (props) => (
+  <Table>
+    <TableHead>
+      <TableRow>
+        <TableCell>Field</TableCell>
+        <TableCell numeric>Value</TableCell>
+      </TableRow>
+    </TableHead>
+    <TableBody>
+      {[
+        {
+          title: 'Sex',
+          value: props.sex,
+        },
+        {
+          title: 'Age',
+          value: props.age
+        },
+        {
+          title: 'Height',
+          value: props.height,
+        },
+        {
+          title: 'Weight',
+          value: props.weight,
+        },
+        {
+          title: 'Level',
+          value: props.level,
+        },
+        {
+          title: 'Goal',
+          value: props.goal,
+        },
+        {
+          title: 'Type',
+          value: props.type,
+        },
+        {
+          title: 'M BASAL',
+          value: utils.calculateMBASAL(props),
+        },
+        {
+          title: 'LEVEL',
+          value: utils.calculateLevel(utils.calculateMBASAL(props), props.level),
+        },
+        {
+          title: 'GOAL ',
+          value: utils.calculateGoal(utils.calculateLevel(utils.calculateMBASAL(props), props.level), props.goal),
+        },
+        {
+          title: 'Resultado Final',
+          value: utils.calculateFinalResults(utils.calculateGoal(utils.calculateLevel(utils.calculateMBASAL(props), props.level), props.goal)),
+        }
+      ].map((n, index) => {
+        return (
+          <TableRow key={index}>
+            <TableCell component="th" scope="row">
+              {n.title}
+            </TableCell>
+            <TableCell numeric>{n.value}</TableCell>
+          </TableRow>
+        );
+      })}
+    </TableBody>
+  </Table>
 );
-const mapStateToProps = (state) => state;
 
-export default connect(
-  mapStateToProps,
-)(Finish);
+Results.propTypes = {
+  sex: PropTypes.string.isRequired,
+  age: PropTypes.number.isRequired,
+  height: PropTypes.number.isRequired,
+  weight: PropTypes.number.isRequired,
+  level: PropTypes.number.isRequired,
+  goal: PropTypes.number.isRequired,
+  type: PropTypes.number.isRequired,
+  results: PropTypes.array.isRequired,
+};
+
+export default Results;
