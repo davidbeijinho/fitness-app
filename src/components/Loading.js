@@ -10,9 +10,7 @@ const Loading = () => (
     <Card>
       <CardHeader title="Loading" />
       <CardContent>
-        <p>
 Loading data.
-        </p>
       </CardContent>
       <CardActions />
     </Card>

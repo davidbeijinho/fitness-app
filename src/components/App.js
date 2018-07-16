@@ -64,6 +64,10 @@ class App extends Component {
       type,
       goal,
     } = this.props;
+    const buttonLabels = {
+      enabledLabel: others.questions.button.label.enabled,
+      disabledLabel: others.questions.button.label.disabled,
+    };
     return (
       <Router>
         <div>
@@ -76,8 +80,7 @@ class App extends Component {
                 link="/question1"
                 value={1}
                 content={others.welcome.text}
-                enabledLabel={others.questions.button.label.enabled}
-                disabledLabel={others.questions.button.label.disabled}
+                {...buttonLabels}
               />
             )}
           />
@@ -89,8 +92,7 @@ class App extends Component {
                 question={questions[0]}
                 value={sex}
                 sendState={setSex}
-                enabledLabel={others.questions.button.label.enabled}
-                disabledLabel={others.questions.button.label.disabled}
+                {...buttonLabels}
               />
             )}
           />
@@ -106,8 +108,7 @@ class App extends Component {
                   setHeight,
                   setWeight,
                 }}
-                enabledLabel={others.questions.button.label.enabled}
-                disabledLabel={others.questions.button.label.disabled}
+                {...buttonLabels}
               />
             )}
           />
@@ -119,8 +120,7 @@ class App extends Component {
                 question={questions[2]}
                 value={level}
                 sendState={setLevel}
-                enabledLabel={others.questions.button.label.enabled}
-                disabledLabel={others.questions.button.label.disabled}
+                {...buttonLabels}
               />
             )}
           />
@@ -132,8 +132,7 @@ class App extends Component {
                 question={questions[3]}
                 value={goal}
                 sendState={setGoal}
-                enabledLabel={others.questions.button.label.enabled}
-                disabledLabel={others.questions.button.label.disabled}
+                {...buttonLabels}
               />
             )}
           />
@@ -145,8 +144,7 @@ class App extends Component {
                 question={questions[4]}
                 value={type}
                 sendState={setType}
-                enabledLabel={others.questions.button.label.enabled}
-                disabledLabel={others.questions.button.label.disabled}
+                {...buttonLabels}
               />
             )}
           />

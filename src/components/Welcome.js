@@ -5,19 +5,17 @@ import CardQuestion from './CardQuestion';
 const Welcome = ({
   title, link, value, content, enabledLabel, disabledLabel,
 }) => (
-  <div>
-    <CardQuestion
-      title={title}
-      link={link}
-      value={value}
-      enabledLabel={enabledLabel}
-      disabledLabel={disabledLabel}
-    >
-      <p>
-        {content}
-      </p>
-    </CardQuestion>
-  </div>
+  <CardQuestion
+    title={title}
+    link={link}
+    value={value}
+    enabledLabel={enabledLabel}
+    disabledLabel={disabledLabel}
+  >
+    <p>
+      {content}
+    </p>
+  </CardQuestion>
 );
 
 Welcome.propTypes = {
