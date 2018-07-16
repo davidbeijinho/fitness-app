@@ -66,7 +66,7 @@ Finish.propTypes = {
   level: PropTypes.number.isRequired,
   goal: PropTypes.number.isRequired,
   type: PropTypes.number.isRequired,
-  results: PropTypes.array.isRequired,
+  results: PropTypes.arrayOf(PropTypes.array.isRequired).isRequired,
 };
 
 export default Finish;

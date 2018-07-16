@@ -131,7 +131,7 @@ App.propTypes = {
   level: PropTypes.number.isRequired,
   goal: PropTypes.number.isRequired,
   type: PropTypes.number.isRequired,
-  results: PropTypes.array.isRequired,
+  results: PropTypes.arrayOf(PropTypes.array.isRequired).isRequired,
   setSex: PropTypes.func.isRequired,
   setLevel: PropTypes.func.isRequired,
   setGoal: PropTypes.func.isRequired,

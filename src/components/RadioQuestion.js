@@ -30,7 +30,17 @@ const RadioQuestion = ({
 );
 
 RadioQuestion.propTypes = {
-  question: PropTypes.object.isRequired,
+  question: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    link: PropTypes.string.isRequired,
+    options: PropTypes.arrayOf(
+      PropTypes.shape({
+        label: PropTypes.string.isRequired,
+        value: PropTypes.string.isRequired,
+      }).isRequired,
+    ).isRequired,
+  }).isRequired,
   value: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.string,

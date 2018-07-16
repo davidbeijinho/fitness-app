@@ -19,9 +19,10 @@ const InputQuestion = ({
       <FormControl key={option.id} fullWidth aria-describedby="weight-helper-text">
         <TextField
           InputProps={{
-            endAdornment: <InputAdornment position="end">
-              {option.adornment}
-            </InputAdornment>,
+            endAdornment:
+  <InputAdornment position="end">
+    {option.adornment }
+  </InputAdornment>,
           }}
           id={option.id}
           type="number"
@@ -35,7 +36,20 @@ const InputQuestion = ({
 );
 
 InputQuestion.propTypes = {
-  question: PropTypes.object.isRequired,
+  question: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    link: PropTypes.string.isRequired,
+    options: PropTypes.arrayOf(
+      PropTypes.shape({
+        label: PropTypes.string.isRequired,
+        help: PropTypes.string.isRequired,
+        adornment: PropTypes.string.isRequired,
+        id: PropTypes.string.isRequired,
+        onChange: PropTypes.string.isRequired,
+      }).isRequired,
+    ).isRequired,
+  }).isRequired,
   value: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.number),
     PropTypes.number,
