@@ -5,12 +5,12 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import CardHeader from '@material-ui/core/CardHeader';
-import utils from '../utils/utils.js';
+import utils from '../utils/utils';
 // import Results from "./Results";
 
-const Finish = props => (
+const Finish = {title, buttonLabel } => (
   <Card>
-    <CardHeader title={props.title} />
+    <CardHeader title={title} />
     <CardContent>
       {utils.getText(props)}
       {/* <Results {...props}/> */}

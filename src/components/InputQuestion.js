@@ -15,7 +15,7 @@ const InputQuestion = ({
           InputProps={{
             endAdornment: <InputAdornment position="end">
               {option.adornment}
-            </InputAdornment>,
+                          </InputAdornment>,
           }}
           id={option.id}
           type="number"

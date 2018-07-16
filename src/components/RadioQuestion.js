@@ -17,7 +17,7 @@ const RadioQuestion = ({
         value={String(value)}
         onChange={sendState}
       >
-        {question.options.map((option, index) => <FormControlLabel key={index} value={String(option.value)} control={<Radio color="primary" />} label={option.label} />)}
+        {question.options.map(option => <FormControlLabel key={option.label} value={String(option.value)} control={<Radio color="primary" />} label={option.label} />)}
       </RadioGroup>
     </FormControl>
   </CardQuestion>
