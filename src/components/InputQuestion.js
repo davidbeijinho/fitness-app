@@ -14,6 +14,7 @@ const InputQuestion = ({ question, value, sendState, enabledLabel, disabledLabel
             endAdornment: <InputAdornment position="end">{option.adornment}</InputAdornment>
           }}
           id={option.id}
+          type="number"
           label={option.label}
           onChange={sendState[option.onChange]}
           margin="normal"
