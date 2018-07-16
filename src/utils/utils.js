@@ -15,9 +15,9 @@ const CONSTANS = {
 
 function calculateMBASAL(data) {
   if (data.sex === 'FEMALE') {
-    return 665 + (9.6 * data.weight) + (1.8 * data.height) - (4.7 * data.age);
+    return (665 + (9.6 * data.weight) + (1.8 * data.height)) - (4.7 * data.age);
   }
-  return 66.5 + (13.8 * data.weight) + (5 * data.height) - (6.8 * data.age);
+  return (66.5 + (13.8 * data.weight) + (5 * data.height)) - (6.8 * data.age);
 }
 
 function calculateLevel(mBasal, level) {
