@@ -1,5 +1,3 @@
-import { RESULTS } from '../data/constants.js';
-
 const CONSTANS = {
     LEVEL_RATIOS: {
         1: 1.2,
@@ -47,16 +45,16 @@ function calculateFinalResults(value) {
     }
 }
 
-function getFinalResults(value, type) {
-    return RESULTS[type][value];
+function getFinalResults(value, type, results) {
+    return results[type-1][value];
 }
 
 function getText(data) {
-    return getFinalResults(calculateFinalResults(calculateGoal(calculateLevel(calculateMBASAL(data),data.level),data.goal)), data.goal).text;
+    return getFinalResults(calculateFinalResults(calculateGoal(calculateLevel(calculateMBASAL(data),data.level),data.goal)), data.type, data.results).text;
 }
 
 function getLink(data) {
-    return getFinalResults(calculateFinalResults(calculateGoal(calculateLevel(calculateMBASAL(data),data.level),data.goal)), data.goal).link;
+    return getFinalResults(calculateFinalResults(calculateGoal(calculateLevel(calculateMBASAL(data),data.level),data.goal)), data.type, data.results).link;
 }
 
 export default {

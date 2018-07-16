@@ -33,6 +33,7 @@ Finish.propTypes = {
   level: PropTypes.number.isRequired,
   goal: PropTypes.number.isRequired,
   type: PropTypes.number.isRequired,
+  results: PropTypes.array.isRequired,
 };
 
 export default Finish;

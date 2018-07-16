@@ -47,7 +47,7 @@ class App extends Component {
             <Route exact path="/question3" render={() => <RadioQuestion question={this.state.questions[2]} value={this.props.level} sendState={this.props.setLevel} enabledLabel={this.state.others.questions.button.label.enabled} disabledLabel={this.state.others.questions.button.label.disabled} />} />
             <Route exact path="/question4" render={() => <RadioQuestion question={this.state.questions[3]} value={this.props.goal} sendState={this.props.setGoal} enabledLabel={this.state.others.questions.button.label.enabled} disabledLabel={this.state.others.questions.button.label.disabled} />} />
             <Route exact path="/question5" render={() => <RadioQuestion question={this.state.questions[4]} value={this.props.type} sendState={this.props.setType} enabledLabel={this.state.others.questions.button.label.enabled} disabledLabel={this.state.others.questions.button.label.disabled} />} />
-            <Route exact path="/finish" render={() => <Finish title={this.state.others.finish.title} buttonLabel={this.state.others.finish.buttonTex} {...this.props} />} />
+            <Route exact path="/finish" render={() => <Finish title={this.state.others.finish.title} buttonLabel={this.state.others.finish.buttonTex} results={this.state.results} {...this.props} />} />
           </div>
         </Router>
       );
