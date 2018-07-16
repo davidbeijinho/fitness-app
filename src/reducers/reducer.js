@@ -1,11 +1,11 @@
 const defaultState = {
-    sex: null,
+    sex: '',
     age: 0,
     height: 0,
     weight: 0,
-    level: null,
-    goal: null,
-    type: null,
+    level: 0,
+    goal: 0,
+    type: 0,
 };
 
 function reducer(state = defaultState, action) {

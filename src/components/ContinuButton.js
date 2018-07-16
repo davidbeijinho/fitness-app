@@ -5,9 +5,9 @@ import Button from '@material-ui/core/Button';
 
 function validateProps(props) {
   if (Array.isArray(props)) {
-    return props.some(x => x === null || x === 0);
+    return props.some(x => x === '' || x === 0);
   } else {
-    return props === null;
+    return props === '' || props === 0;
   }
 }
 

@@ -3,18 +3,17 @@ import { connect } from 'react-redux'
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import utils from '../utils';
+import CardHeader from '@material-ui/core/CardHeader';
 import { OTHERS } from '../constants';
 // import Results from "./Results";
 
 const Finish = (props) => (
   <Card>
+    <CardHeader title={OTHERS.finish.header} />
     <CardContent>
-      <Typography gutterBottom variant="headline" component="h1">{OTHERS.finish.header}</Typography>
-
-      <p>{utils.getText(props)}</p>
+      {utils.getText(props)}
       {/* <Results /> */}
     </CardContent>
     <CardActions>
