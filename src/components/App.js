@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { HashRouter as Router, Route } from 'react-router-dom';
 import RadioQuestion from './RadioQuestion';
@@ -46,6 +47,9 @@ class App extends Component {
     const {
       others,
       questions,
+      results,
+    } = this.state;
+    const {
       age,
       sex,
       height,
@@ -60,8 +64,7 @@ class App extends Component {
       level,
       type,
       goal,
-      results,
-    } = this.state;
+    } = this.props;
     return (
       <Router>
         <div>
@@ -87,7 +90,7 @@ class App extends Component {
           <Route exact path="/question3" render={() => <RadioQuestion question={questions[2]} value={level} sendState={setLevel} enabledLabel={others.questions.button.label.enabled} disabledLabel={others.questions.button.label.disabled} />} />
           <Route exact path="/question4" render={() => <RadioQuestion question={questions[3]} value={goal} sendState={setGoal} enabledLabel={others.questions.button.label.enabled} disabledLabel={others.questions.button.label.disabled} />} />
           <Route exact path="/question5" render={() => <RadioQuestion question={questions[4]} value={type} sendState={setType} enabledLabel={others.questions.button.label.enabled} disabledLabel={others.questions.button.label.disabled} />} />
-          <Route exact path="/finish" render={() => <Finish title={others.finish.title} buttonLabel={others.finish.buttonTex} results={results} />} />
+          <Route exact path="/finish" render={() => <Finish title={others.finish.title} buttonLabel={others.finish.buttonTex} results={results} {...this.props} />} />
         </div>
       </Router>
     );
@@ -119,6 +122,24 @@ const mapDispatchToProps = dispatch => ({
     dispatch(setWeightAction(Number(changeEvent.target.value)));
   },
 });
+
+App.propTypes = {
+  sex: PropTypes.string.isRequired,
+  age: PropTypes.number.isRequired,
+  height: PropTypes.number.isRequired,
+  weight: PropTypes.number.isRequired,
+  level: PropTypes.number.isRequired,
+  goal: PropTypes.number.isRequired,
+  type: PropTypes.number.isRequired,
+  results: PropTypes.array.isRequired,
+  setSex: PropTypes.func.isRequired,
+  setLevel: PropTypes.func.isRequired,
+  setGoal: PropTypes.func.isRequired,
+  setType: PropTypes.func.isRequired,
+  setAge: PropTypes.func.isRequired,
+  setHeight: PropTypes.func.isRequired,
+  setWeight: PropTypes.func.isRequired,
+};
 
 export default connect(
   mapStateToProps,

@@ -6,7 +6,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import CardHeader from '@material-ui/core/CardHeader';
 import utils from '../utils/utils';
-// import Results from "./Results";
+import Results from './Results';
 
 const Finish = ({
   title, buttonLabel, sex, age, height, weight, level, goal, type, results,
@@ -24,7 +24,17 @@ const Finish = ({
         type,
         results,
       })}
-      {/* <Results {...props}/> */}
+      <Results {...{
+        sex,
+        age,
+        height,
+        weight,
+        level,
+        goal,
+        type,
+        results,
+      }}
+      />
     </CardContent>
     <CardActions>
       <a href={utils.getLink({
