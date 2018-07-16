@@ -6,14 +6,14 @@ import CardContent from '@material-ui/core/CardContent';
 import ContinueButton from "./ContinuButton";
 import CardHeader from '@material-ui/core/CardHeader';
 
-const CardQuestion = ({ title, link, value, children }) => (
+const CardQuestion = ({ title, link, value, children, enabledLabel, disabledLabel }) => (
   <Card>
     <CardHeader title={title} />
     <CardContent>
       {children}
     </CardContent>
     <CardActions>
-      <ContinueButton value={value} link={link} />
+      <ContinueButton value={value} link={link} enabledLabel={enabledLabel} disabledLabel={disabledLabel} />
     </CardActions>
   </Card>
 );
@@ -30,6 +30,8 @@ CardQuestion.propTypes = {
     PropTypes.array.isRequired,
     PropTypes.object,
   ]).isRequired,
+  enabledLabel: PropTypes.string.isRequired,
+  disabledLabel: PropTypes.string.isRequired,
 };
 
 export default CardQuestion;

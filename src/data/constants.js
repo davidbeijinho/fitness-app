@@ -2,7 +2,7 @@ export const QUESTIONS = [
     {
         title: 'Sexo gostas?',
         name: 'sex',
-        link:'/question2',
+        link: '/question2',
         options: [
             {
                 label: 'MALE',
@@ -16,27 +16,27 @@ export const QUESTIONS = [
     },
     {
         title: 'DADOS PESSOAIS',
-        link:'/question3',
+        link: '/question3',
         options: [
             {
                 label: 'Idade',
                 help: 'Ex: 24',
                 adornment: 'anos',
-                id:'age',
+                id: 'age',
                 onChange: 'setAge',
             },
             {
                 label: 'Altura',
                 help: 'Ex: 181',
                 adornment: 'cm',
-                id:'height',
+                id: 'height',
                 onChange: 'setHeight',
             },
             {
                 label: 'Peso',
                 help: 'Ex: 70.4',
                 adornment: 'Kg',
-                id:'weight',
+                id: 'weight',
                 onChange: 'setWeight',
             }
         ]
@@ -44,7 +44,7 @@ export const QUESTIONS = [
     {
         title: 'NIVEL DE ACTIVIDADE FÍSICA?',
         name: 'level',
-        link:'/question4',
+        link: '/question4',
         options: [
             {
                 label: 'TENHO UMA VIDA COMPLETAMENTE SEDENTARIA',
@@ -71,7 +71,7 @@ export const QUESTIONS = [
     {
         title: 'OBJECTIVO?',
         name: 'goal',
-        link:'/question5',
+        link: '/question5',
         options: [
             {
                 label: 'SAÚDE/MANUTENÇÃO',
@@ -90,7 +90,7 @@ export const QUESTIONS = [
     {
         title: 'COM QUAL DESTAS SITUAÇÕES SE IDENTIFICA MAIS',
         name: 'type',
-        link:'/finish',
+        link: '/finish',
         options: [
             {
                 label: 'AUMENTO DE MASSA MUSCULAR',
@@ -109,19 +109,22 @@ export const QUESTIONS = [
 ];
 
 export const OTHERS = {
+    welcome: {
+        title: 'Ora aqui esta o questionario e tal',
+        text: 'O empenho em analisar a estrutura atual da organização assume importantes posições no estabelecimento das posturas dos órgãos dirigentes com relação às suas atribuições. Do mesmo modo, o novo modelo estrutural aqui preconizado afeta positivamente a correta previsão do orçamento setorial. O incentivo ao avanço tecnológico, assim como o desenvolvimento contínuo de distintas formas de atuação talvez venha a ressaltar a relatividade das direções preferenciais no sentido do progresso. Nunca é demais lembrar o peso e o significado destes problemas, uma vez que a complexidade dos estudos efetuados acarreta um processo de reformulação e modernização de todos os recursos funcionais envolvidos. As experiências acumuladas demonstram que a constante divulgação das informações agrega valor ao estabelecimento de alternativas às soluções ortodoxas.',
+        button: 'comecar'
+    },
     finish: {
-        header: 'Ora aqui esta o final do questionario questionario e tal',
+        title: 'Ora aqui esta o final do questionario questionario e tal',
         buttonTex: 'Download',
     },
     questions: {
         button: {
-            label: 'Continue',
+            label: {
+                disabled: 'Continue',
+                enabled: 'Continue',
+            }
         }
-    },
-    welcome: {
-        header: 'Ora aqui esta o questionario e tal',
-        text: 'O empenho em analisar a estrutura atual da organização assume importantes posições no estabelecimento das posturas dos órgãos dirigentes com relação às suas atribuições. Do mesmo modo, o novo modelo estrutural aqui preconizado afeta positivamente a correta previsão do orçamento setorial. O incentivo ao avanço tecnológico, assim como o desenvolvimento contínuo de distintas formas de atuação talvez venha a ressaltar a relatividade das direções preferenciais no sentido do progresso. Nunca é demais lembrar o peso e o significado destes problemas, uma vez que a complexidade dos estudos efetuados acarreta um processo de reformulação e modernização de todos os recursos funcionais envolvidos. As experiências acumuladas demonstram que a constante divulgação das informações agrega valor ao estabelecimento de alternativas às soluções ortodoxas.',
-        button:'comecar'
     },
 };
 

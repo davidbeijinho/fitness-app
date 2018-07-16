@@ -1,4 +1,4 @@
-import { RESULTS } from './constants';
+import { RESULTS } from '../data/constants.js';
 
 const CONSTANS = {
     LEVEL_RATIOS: {

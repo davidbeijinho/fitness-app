@@ -1,6 +1,6 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
-import { OTHERS } from '../constants';
 import Button from '@material-ui/core/Button';
 
 function validateProps(props) {
@@ -11,10 +11,21 @@ function validateProps(props) {
   }
 }
 
-const ContinueButton = ({ value, link }) => (
+const ContinueButton = ({ value, link, enabledLabel, disabledLabel }) => (
   validateProps(value) ?
-    <Button variant="contained" disabled color="primary">{OTHERS.questions.button.label}</Button> :
-    <Link to={link}><Button variant="contained" color="primary">{OTHERS.questions.button.label}</Button></Link>
+    <Button variant="contained" disabled color="primary">{enabledLabel}</Button> :
+    <Link to={link}><Button variant="contained" color="primary">{disabledLabel}</Button></Link>
 );
+
+ContinueButton.propTypes = {
+  link: PropTypes.string.isRequired,
+  value: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.number),
+    PropTypes.number,
+    PropTypes.string,
+  ]).isRequired,
+  enabledLabel: PropTypes.string.isRequired,
+  disabledLabel: PropTypes.string.isRequired,
+};
 
 export default ContinueButton;
