@@ -21,20 +21,23 @@ export const QUESTIONS = [
             {
                 label: 'Idade',
                 help: 'Ex: 24',
-                extraLabel: 'anos',
+                adornment: 'anos',
                 id:'age',
+                onChange: 'setAge',
             },
             {
                 label: 'Altura',
                 help: 'Ex: 181',
-                extraLabel: 'cm',
+                adornment: 'cm',
                 id:'height',
+                onChange: 'setHeight',
             },
             {
                 label: 'Peso',
                 help: 'Ex: 70.4',
-                extraLabel: 'Kg',
+                adornment: 'Kg',
                 id:'weight',
+                onChange: 'setWeight',
             }
         ]
     },
