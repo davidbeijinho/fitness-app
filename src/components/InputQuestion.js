@@ -3,17 +3,19 @@ import PropTypes from 'prop-types';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/TextField';
-import CardQuestion from "./CardQuestion";
+import CardQuestion from './CardQuestion';
 
 const InputQuestion = ({
- question, value, sendState, enabledLabel, disabledLabel 
+  question, value, sendState, enabledLabel, disabledLabel,
 }) => (
   <CardQuestion title={question.title} link={question.link} value={value} enabledLabel={enabledLabel} disabledLabel={disabledLabel}>
-    {question.options.map((option) => {
-      return <FormControl key={option.id} fullWidth aria-describedby="weight-helper-text" >
+    {question.options.map(option => (
+      <FormControl key={option.id} fullWidth aria-describedby="weight-helper-text">
         <TextField
           InputProps={{
-            endAdornment: <InputAdornment position="end">{option.adornment}</InputAdornment>
+            endAdornment: <InputAdornment position="end">
+              {option.adornment}
+            </InputAdornment>,
           }}
           id={option.id}
           type="number"
@@ -21,8 +23,8 @@ const InputQuestion = ({
           onChange={sendState[option.onChange]}
           margin="normal"
         />
-      </FormControl>;
-    })}
+      </FormControl>
+    ))}
   </CardQuestion>
 );
 

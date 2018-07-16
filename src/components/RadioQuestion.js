@@ -7,7 +7,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import CardQuestion from './CardQuestion';
 
 const RadioQuestion = ({
- question, value, sendState, enabledLabel, disabledLabel 
+  question, value, sendState, enabledLabel, disabledLabel,
 }) => (
   <CardQuestion title={question.title} link={question.link} value={value} enabledLabel={enabledLabel} disabledLabel={disabledLabel}>
     <FormControl component="fieldset" required>
@@ -17,9 +17,7 @@ const RadioQuestion = ({
         value={String(value)}
         onChange={sendState}
       >
-        {question.options.map((option, index) => {
-          return <FormControlLabel key={index} value={String(option.value)} control={<Radio color="primary" />} label={option.label} />;
-        })}
+        {question.options.map((option, index) => <FormControlLabel key={index} value={String(option.value)} control={<Radio color="primary" />} label={option.label} />)}
       </RadioGroup>
     </FormControl>
   </CardQuestion>

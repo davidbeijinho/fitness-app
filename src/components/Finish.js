@@ -18,8 +18,8 @@ const Finish = props => (
     <CardActions>
       <a href={utils.getLink(props)}>
         <Button variant="contained" color="primary">
-{props.buttonLabel}
-</Button>
+          {props.buttonLabel}
+        </Button>
       </a>
     </CardActions>
   </Card>

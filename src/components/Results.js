@@ -14,10 +14,10 @@ const Results = props => (
       <TableRow>
         <TableCell>
 Field
-</TableCell>
+        </TableCell>
         <TableCell numeric>
 Value
-</TableCell>
+        </TableCell>
       </TableRow>
     </TableHead>
     <TableBody>
@@ -67,13 +67,15 @@ Value
           value: utils.calculateFinalResults(utils.calculateGoal(utils.calculateLevel(utils.calculateMBASAL(props), props.level), props.goal)),
         },
       ].map((n, index) => (
-          <TableRow key={index}>
-            <TableCell component="th" scope="row">
-              {n.title}
-            </TableCell>
-            <TableCell numeric>{n.value}</TableCell>
-          </TableRow>
-        ))}
+        <TableRow key={index}>
+          <TableCell component="th" scope="row">
+            {n.title}
+          </TableCell>
+          <TableCell numeric>
+            {n.value}
+          </TableCell>
+        </TableRow>
+      ))}
     </TableBody>
   </Table>
 );

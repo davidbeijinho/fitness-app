@@ -6,7 +6,9 @@ import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
 import ContinueButton from './ContinuButton';
 
-const CardQuestion = ({ title, link, value, children, enabledLabel, disabledLabel }) => (
+const CardQuestion = ({
+  title, link, value, children, enabledLabel, disabledLabel,
+}) => (
   <Card>
     <CardHeader title={title} />
     <CardContent>

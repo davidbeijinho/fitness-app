@@ -15,15 +15,17 @@ const ContinueButton = ({
 }) => (
   validateProps(value)
     ? (
-<Button variant="contained" disabled color="primary">
-{enabledLabel}
-</Button>
-)
+      <Button variant="contained" disabled color="primary">
+        {enabledLabel}
+      </Button>
+    )
     : (
-<Link to={link}>
-<Button variant="contained" color="primary">{disabledLabel}</Button>
-</Link>
-)
+      <Link to={link}>
+        <Button variant="contained" color="primary">
+          {disabledLabel}
+        </Button>
+      </Link>
+    )
 );
 
 ContinueButton.propTypes = {

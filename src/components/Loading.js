@@ -12,7 +12,7 @@ const Loading = () => (
       <CardContent>
         <p>
 Loading data.
-</p>
+        </p>
       </CardContent>
       <CardActions />
     </Card>
