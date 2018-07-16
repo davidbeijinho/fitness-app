@@ -39,15 +39,13 @@ InputQuestion.propTypes = {
   question: PropTypes.shape({
     title: PropTypes.string.isRequired,
     link: PropTypes.string.isRequired,
-    options: PropTypes.arrayOf(
-      PropTypes.shape({
-        label: PropTypes.string.isRequired,
-        help: PropTypes.string.isRequired,
-        adornment: PropTypes.string.isRequired,
-        id: PropTypes.string.isRequired,
-        onChange: PropTypes.string.isRequired,
-      }).isRequired,
-    ).isRequired,
+    options: PropTypes.arrayOf(PropTypes.shape({
+      label: PropTypes.string.isRequired,
+      help: PropTypes.string.isRequired,
+      adornment: PropTypes.string.isRequired,
+      id: PropTypes.string.isRequired,
+      onChange: PropTypes.string.isRequired,
+    }).isRequired).isRequired,
   }).isRequired,
   value: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.number),

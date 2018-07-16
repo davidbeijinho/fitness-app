@@ -23,7 +23,14 @@ const RadioQuestion = ({
         value={String(value)}
         onChange={sendState}
       >
-        {question.options.map(option => <FormControlLabel key={option.label} value={String(option.value)} control={<Radio color="primary" />} label={option.label} />)}
+        {question.options.map(option => (
+          <FormControlLabel
+            key={option.label}
+            value={String(option.value)}
+            control={<Radio color="primary" />}
+            label={option.label}
+          />
+        ))}
       </RadioGroup>
     </FormControl>
   </CardQuestion>
@@ -34,12 +41,10 @@ RadioQuestion.propTypes = {
     title: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     link: PropTypes.string.isRequired,
-    options: PropTypes.arrayOf(
-      PropTypes.shape({
-        label: PropTypes.string.isRequired,
-        value: PropTypes.string.isRequired,
-      }).isRequired,
-    ).isRequired,
+    options: PropTypes.arrayOf(PropTypes.shape({
+      label: PropTypes.string.isRequired,
+      value: PropTypes.string.isRequired,
+    }).isRequired).isRequired,
   }).isRequired,
   value: PropTypes.oneOfType([
     PropTypes.number,

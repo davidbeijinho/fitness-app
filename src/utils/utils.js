@@ -49,26 +49,29 @@ function getFinalResults(value, type, results) {
 
 function getText(data) {
   return getFinalResults(
-    calculateFinalResults(
-      calculateGoal(
-        calculateLevel(
-          calculateMBASAL(data), data.level,
-        ), data.goal,
+    calculateFinalResults(calculateGoal(
+      calculateLevel(
+        calculateMBASAL(data),
+        data.level,
       ),
-    ), data.type, data.results,
+      data.goal,
+    )),
+    data.type, data.results,
   )
     .text;
 }
 
 function getLink(data) {
   return getFinalResults(
-    calculateFinalResults(
-      calculateGoal(
-        calculateLevel(
-          calculateMBASAL(data), data.level,
-        ), data.goal,
+    calculateFinalResults(calculateGoal(
+      calculateLevel(
+        calculateMBASAL(data),
+        data.level,
       ),
-    ), data.type, data.results,
+      data.goal,
+    )),
+    data.type,
+    data.results,
   )
     .link;
 }

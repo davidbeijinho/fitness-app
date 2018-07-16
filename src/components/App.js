@@ -29,14 +29,13 @@ class App extends Component {
   }
 
   componentDidMount() {
-    API.loadData().then(
-      (values) => {
+    API.loadData()
+      .then((values) => {
         this.setState({
           ...values,
           loading: false,
         });
-      },
-    );
+      });
   }
 
   render() {
@@ -68,8 +67,33 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Route exact path="/" render={() => <Welcome title={others.welcome.title} link="/question1" value={1} content={others.welcome.text} enabledLabel={others.questions.button.label.enabled} disabledLabel={others.questions.button.label.disabled} />} />
-          <Route exact path="/question1" render={() => <RadioQuestion question={questions[0]} value={sex} sendState={setSex} enabledLabel={others.questions.button.label.enabled} disabledLabel={others.questions.button.label.disabled} />} />
+          <Route
+            exact
+            path="/"
+            render={() => (
+              <Welcome
+                title={others.welcome.title}
+                link="/question1"
+                value={1}
+                content={others.welcome.text}
+                enabledLabel={others.questions.button.label.enabled}
+                disabledLabel={others.questions.button.label.disabled}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/question1"
+            render={() => (
+              <RadioQuestion
+                question={questions[0]}
+                value={sex}
+                sendState={setSex}
+                enabledLabel={others.questions.button.label.enabled}
+                disabledLabel={others.questions.button.label.disabled}
+              />
+            )}
+          />
           <Route
             exact
             path="/question2"
@@ -87,10 +111,57 @@ class App extends Component {
               />
             )}
           />
-          <Route exact path="/question3" render={() => <RadioQuestion question={questions[2]} value={level} sendState={setLevel} enabledLabel={others.questions.button.label.enabled} disabledLabel={others.questions.button.label.disabled} />} />
-          <Route exact path="/question4" render={() => <RadioQuestion question={questions[3]} value={goal} sendState={setGoal} enabledLabel={others.questions.button.label.enabled} disabledLabel={others.questions.button.label.disabled} />} />
-          <Route exact path="/question5" render={() => <RadioQuestion question={questions[4]} value={type} sendState={setType} enabledLabel={others.questions.button.label.enabled} disabledLabel={others.questions.button.label.disabled} />} />
-          <Route exact path="/finish" render={() => <Finish title={others.finish.title} buttonLabel={others.finish.buttonTex} results={results} {...this.props} />} />
+          <Route
+            exact
+            path="/question3"
+            render={() => (
+              <RadioQuestion
+                question={questions[2]}
+                value={level}
+                sendState={setLevel}
+                enabledLabel={others.questions.button.label.enabled}
+                disabledLabel={others.questions.button.label.disabled}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/question4"
+            render={() => (
+              <RadioQuestion
+                question={questions[3]}
+                value={goal}
+                sendState={setGoal}
+                enabledLabel={others.questions.button.label.enabled}
+                disabledLabel={others.questions.button.label.disabled}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/question5"
+            render={() => (
+              <RadioQuestion
+                question={questions[4]}
+                value={type}
+                sendState={setType}
+                enabledLabel={others.questions.button.label.enabled}
+                disabledLabel={others.questions.button.label.disabled}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/finish"
+            render={() => (
+              <Finish
+                title={others.finish.title}
+                buttonLabel={others.finish.buttonTex}
+                results={results}
+                {...this.props}
+              />
+            )}
+          />
         </div>
       </Router>
     );
