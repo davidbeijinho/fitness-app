@@ -6,21 +6,24 @@ import Button from '@material-ui/core/Button';
 function validateProps(props) {
   if (Array.isArray(props)) {
     return props.some(x => x === '' || x === 0);
-  } 
-    return props === '' || props === 0;
-  
+  }
+  return props === '' || props === 0;
 }
 
 const ContinueButton = ({
- value, link, enabledLabel, disabledLabel 
+  value, link, enabledLabel, disabledLabel,
 }) => (
   validateProps(value)
-    ? <Button variant="contained" disabled color="primary">
+    ? (
+<Button variant="contained" disabled color="primary">
 {enabledLabel}
 </Button>
-    : <Link to={link}>
+)
+    : (
+<Link to={link}>
 <Button variant="contained" color="primary">{disabledLabel}</Button>
 </Link>
+)
 );
 
 ContinueButton.propTypes = {

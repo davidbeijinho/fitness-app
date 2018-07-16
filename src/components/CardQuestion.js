@@ -4,18 +4,21 @@ import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
-import ContinueButton from "./ContinuButton";
+import ContinueButton from './ContinuButton';
 
-const CardQuestion = ({
- title, link, value, children, enabledLabel, disabledLabel 
-}) => (
+const CardQuestion = ({ title, link, value, children, enabledLabel, disabledLabel }) => (
   <Card>
     <CardHeader title={title} />
     <CardContent>
       {children}
     </CardContent>
     <CardActions>
-      <ContinueButton value={value} link={link} enabledLabel={enabledLabel} disabledLabel={disabledLabel} />
+      <ContinueButton
+        value={value}
+        link={link}
+        enabledLabel={enabledLabel}
+        disabledLabel={disabledLabel}
+      />
     </CardActions>
   </Card>
 );
