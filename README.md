@@ -12,6 +12,7 @@ Simple fitness app that ask some questions and calculate some values based on th
 
 ## TODO
 
+* FIX problem with proptypes
 * add testing
 * try some PWA functions
 * add icon
