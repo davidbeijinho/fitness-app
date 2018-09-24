@@ -29,18 +29,20 @@ function calculateGoal(level, goal) {
 }
 
 function calculateFinalResults(value) {
-  if (value < 1500) {
+  if (value < 1200) {
     return 0;
-  } if (value < 2000) {
+  } if (value < 1500) {
     return 1;
-  } if (value < 2500) {
+  } if (value < 2000) {
     return 2;
-  } if (value < 3000) {
+  } if (value < 2500) {
     return 3;
-  } if (value < 3500) {
+  } if (value < 3000) {
     return 4;
+  } if (value < 3500) {
+    return 5;
   }
-  return 5;
+  return 6;
 }
 
 function getFinalResults(value, type, results) {
